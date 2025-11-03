@@ -45,7 +45,7 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return base.ToString() + $"{Speciality.PadRight(16)} {Group.PadRight(8)} {Rating.ToString().PadRight(8)}";
+			return base.ToString() + $"{Speciality.PadRight(28)} {Group.PadRight(16)} {Rating.ToString().PadRight(16)}";
 		}
 	}
 }

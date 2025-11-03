@@ -35,7 +35,7 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return $"{base.ToString().Split('.').Last()}:".PadRight(12) + $" {LastName.PadRight(16)} {FirstName.PadRight(16)} {Age.ToString().PadRight(5)}";
+			return $"{base.ToString().Split('.').Last()}:".PadRight(16) + $"{LastName.PadRight(16)} {FirstName.PadRight(16)} {Age.ToString().PadRight(16)}";
 		}
 	}
 }
