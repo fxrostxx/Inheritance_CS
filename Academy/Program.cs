@@ -1,8 +1,12 @@
 ﻿//#define INHERITANCE_1
 //#define INHERITANCE_2
+//#define SAVE_TO_FILE
+#define READ_FROM_FILE
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +16,7 @@ namespace Academy
 	internal class Program
 	{
 		static readonly string delimeter = "\n-----------------------\n";
+		static readonly string filename = "group.txt";
 		static void Main(string[] args)
 		{
 #if INHERITANCE_1
@@ -41,6 +46,7 @@ namespace Academy
 			graduate.Info();
 			Console.WriteLine(delimeter);
 #endif
+#if SAVE_TO_FILE
 			Human[] group =
 			{
 				new Student("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 90, 95),
@@ -56,6 +62,26 @@ namespace Academy
 				Console.WriteLine(group[i].ToString());
 				Console.WriteLine(delimeter);
 			}
+
+			using (StreamWriter sw = new StreamWriter(filename))
+			{
+				for (int i = 0; i < group.Length; ++i) sw.WriteLine(group[i].ToString());
+			}
+			Process.Start("notepad.exe", filename); 
+#endif
+#if READ_FROM_FILE
+			Human[] group;
+			string buffer = "";
+			using (StreamReader sr = new StreamReader(filename))
+			{
+				while (buffer != null)
+				{
+					buffer = sr.ReadLine();
+					string type = buffer.Split(':').First();
+					if (type == "Human")
+				}
+			}
+#endif
 		}
 	}
 }
