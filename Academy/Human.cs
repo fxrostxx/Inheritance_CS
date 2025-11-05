@@ -37,5 +37,9 @@ namespace Academy
 		{
 			return $"{base.ToString().Split('.').Last()}:".PadRight(16) + $"{LastName.PadRight(16)} {FirstName.PadRight(16)} {Age.ToString().PadRight(16)}";
 		}
+		public virtual string ToFileString()
+		{
+			return $"{this.GetType().ToString().Split('.').Last()}," + $"{LastName},{FirstName},{Age.ToString()}";
+		}
 	}
 }

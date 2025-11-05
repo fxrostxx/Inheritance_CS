@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +58,14 @@ namespace Academy
 				Console.WriteLine(group[i].ToString());
 				Console.WriteLine(delimeter);
 			}
+			Save(group, "group.txt");
+		}
+		static void Save(Human[] group, string filename)
+		{
+			StreamWriter sw = new StreamWriter(filename);
+			for (int i = 0; i < group.Length; ++i) sw.WriteLine(group[i].ToFileString());
+			sw.Close();
+			Process.Start("notepad.exe", filename);
 		}
 	}
 }
