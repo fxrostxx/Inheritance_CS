@@ -1,5 +1,7 @@
 ﻿//#define INHERITANCE_1
 //#define INHERITANCE_2
+//#define WRITE_TO_FILE
+#define READ_FROM_FILE
 
 using System;
 using System.Collections.Generic;
@@ -43,8 +45,9 @@ namespace Academy
 			graduate.Info();
 			Console.WriteLine(delimeter);
 #endif
+#if WRITE_TO_FILE
 			Human[] group =
-			{
+				{
 				new Student("Pinkman", "Jessie", 22, "Chemistry", "WW_220", 90, 95),
 				new Teacher("White", "Walter", 50, "Chemistry", 25),
 				new Graduate("Schreder", "Hank", 40, "Criminalistic", "OBN", 50, 60, "How to catch Heisenberg"),
@@ -58,14 +61,14 @@ namespace Academy
 				Console.WriteLine(group[i].ToString());
 				Console.WriteLine(delimeter);
 			}
-			Save(group, "group.txt");
-		}
-		static void Save(Human[] group, string filename)
-		{
-			StreamWriter sw = new StreamWriter(filename);
-			for (int i = 0; i < group.Length; ++i) sw.WriteLine(group[i].ToFileString());
-			sw.Close();
-			Process.Start("notepad.exe", filename);
+			Streamer streamer = new Streamer();
+			streamer.Save(group, "group.txt");
+#endif
+#if READ_FROM_FILE
+			Streamer streamer = new Streamer();
+			Human[] group = streamer.Load("group.txt");
+			streamer.Print(group);
+#endif
 		}
 	}
 }
