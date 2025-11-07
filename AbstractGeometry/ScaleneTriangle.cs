@@ -70,10 +70,10 @@ namespace AbstractGeometry
 			SolidBrush brush = new SolidBrush(Color);
 			PointF[] vertices =
 			{
-				new PointF((float)(StartX + (Side2 * Side2 - Side3 * Side3 + Side1 * Side1)/(2 * Side1)), (float)(StartY + GetHeight())),
+				new PointF((float)(StartX + (Side2 * Side2 - Side3 * Side3 + Side1 * Side1) / (2 * Side1)), (float)(StartY + GetHeight())),
 				new PointF((float)StartX, (float)(StartY)),
 				new PointF((float)(StartX + Side1), (float)(StartY)),
-				
+
 			};
 			e.Graphics.DrawPolygon(pen, vertices);
 			e.Graphics.FillPolygon(brush, vertices);
