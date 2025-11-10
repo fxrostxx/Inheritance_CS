@@ -29,7 +29,7 @@ namespace AbstractGeometry
 			Pen pen = new Pen(Color, LineWidth);
 			SolidBrush brush = new SolidBrush(Color);
 			e.Graphics.DrawEllipse(pen, StartX, StartY, (float)GetDiameter(), (float)GetDiameter());
-			e.Graphics.FillEllipse(brush, StartX, StartY, (float)GetDiameter(), (float)GetDiameter());
+			//e.Graphics.FillEllipse(brush, StartX, StartY, (float)GetDiameter(), (float)GetDiameter());
 		}
 		public override void Info(PaintEventArgs e)
 		{

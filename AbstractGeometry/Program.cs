@@ -1,4 +1,6 @@
-﻿using System;
+﻿//#define ABSTRACT_1
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -20,6 +22,7 @@ namespace AbstractGeometry
 				(Screen.PrimaryScreen.Bounds.Left, Screen.PrimaryScreen.Bounds.Top, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 			PaintEventArgs e = new PaintEventArgs(graphics, window_rect);
 
+#if ABSTRACT_1
 			Rectangle rect = new Rectangle(150, 100, 100, 100, 1, Color.Orange);
 			rect.Info(e);
 			Console.WriteLine(delimeter);
@@ -42,11 +45,30 @@ namespace AbstractGeometry
 			while (true)
 			{
 				rect.Draw(e);
+				rect.DrawDiagonal(e);
 				square.Draw(e);
+				square.DrawDiagonal(e);
 				circle.Draw(e);
 				eTriangle.Draw(e);
 				iTriangle.Draw(e);
 				sTriangle.Draw(e);
+			}
+#endif
+			Shape[] shapes =
+		{
+			new Rectangle(150, 100, 100, 100, 1, Color.Orange),
+			new Square(100, 300, 100, 1, Color.Red),
+			new Circle(50, 450, 100, 1, Color.Yellow),
+			new EquilateralTriangle(150, 100, 300, 1, Color.Green),
+			new IsoscelesTriangle(105, 50, 325, 300, 1, Color.Red),
+			new ScaleneTriangle(100, 90, 80, 450, 300, 1, Color.White)
+		};
+			while (true)
+			{
+				for (int i = 0; i < shapes.Length; ++i)
+				{
+					if (!(shapes[i] is IHaveDiagonal)) shapes[i].Draw(e);
+				}
 			}
 		}
 		[DllImport("user32.dll")]

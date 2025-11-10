@@ -75,7 +75,7 @@ namespace AbstractGeometry
 				new PointF((float)(StartX + Side1), (float)(StartY)),
 			};
 			e.Graphics.DrawPolygon(pen, vertices);
-			e.Graphics.FillPolygon(brush, vertices);
+			//e.Graphics.FillPolygon(brush, vertices);
 		}
 		public override void Info(PaintEventArgs e)
 		{

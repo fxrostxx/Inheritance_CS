@@ -35,7 +35,7 @@ namespace AbstractGeometry
 				new PointF((float)(StartX + Side), (float)(StartY + GetHeight()))
 			};
 			e.Graphics.DrawPolygon(pen, vertices);
-			e.Graphics.FillPolygon(brush, vertices);
+			//e.Graphics.FillPolygon(brush, vertices);
 		}
 		public override void Info(PaintEventArgs e)
 		{
