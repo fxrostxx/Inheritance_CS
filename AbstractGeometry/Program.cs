@@ -54,15 +54,15 @@ namespace AbstractGeometry
 				sTriangle.Draw(e);
 			}
 #endif
-		Shape[] shapes =
-		{
+			Shape[] shapes =
+			{
 			new Rectangle(150, 100, 100, 100, 1, Color.Orange),
 			new Square(100, 300, 100, 1, Color.Red),
 			new Circle(50, 450, 100, 1, Color.Yellow),
 			new EquilateralTriangle(150, 100, 300, 1, Color.Green),
 			new IsoscelesTriangle(105, 50, 325, 300, 1, Color.Red),
 			new ScaleneTriangle(100, 90, 80, 450, 300, 1, Color.White)
-		};
+			};
 			while (true)
 			{
 				for (int i = 0; i < shapes.Length; ++i)
