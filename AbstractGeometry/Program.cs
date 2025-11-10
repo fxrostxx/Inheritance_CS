@@ -54,7 +54,7 @@ namespace AbstractGeometry
 				sTriangle.Draw(e);
 			}
 #endif
-			Shape[] shapes =
+		Shape[] shapes =
 		{
 			new Rectangle(150, 100, 100, 100, 1, Color.Orange),
 			new Square(100, 300, 100, 1, Color.Red),
