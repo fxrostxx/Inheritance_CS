@@ -68,7 +68,7 @@ namespace AbstractGeometry
 		{
 			Pen pen = new Pen(Color, LineWidth);
 			SolidBrush brush = new SolidBrush(Color);
-			PointF[] vertices =
+			PointF[] vertices = new PointF[]
 			{
 				new PointF((float)(StartX + (Side2 * Side2 - Side3 * Side3 + Side1 * Side1) / (2 * Side1)), (float)(StartY + GetHeight())),
 				new PointF((float)StartX, (float)(StartY)),
