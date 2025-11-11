@@ -50,6 +50,12 @@ namespace AbstractGeometry
 		public override double GetHeight() => Math.Sqrt(Math.Pow(itSide, 2) - Math.Pow(itBase / 2, 2));
 		public override double GetArea() => itBase * GetHeight() / 2;
 		public override double GetPerimeter() => itSide * 2 + itBase;
+		public override void DrawHeight(PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, LineWidth);
+			SolidBrush brush = new SolidBrush(Color);
+			e.Graphics.DrawLine(pen, (float)(StartX + Base / 2), (float)(StartY), (float)(StartX + Base / 2), (float)(StartY + GetHeight()));
+		}
 		public override void Draw(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);

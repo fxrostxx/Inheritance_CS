@@ -1,4 +1,5 @@
-﻿//#define ABSTRACT_1
+﻿#define ABSTRACT_1
+//#define INTERFACES
 
 using System;
 using System.Collections.Generic;
@@ -49,13 +50,18 @@ namespace AbstractGeometry
 				square.Draw(e);
 				square.DrawDiagonal(e);
 				circle.Draw(e);
+				circle.DrawDiameter(e);
 				eTriangle.Draw(e);
+				eTriangle.DrawHeight(e);
 				iTriangle.Draw(e);
+				iTriangle.DrawHeight(e);
 				sTriangle.Draw(e);
+				sTriangle.DrawHeight(e);
 			}
 #endif
+#if INTERFACES
 			Shape[] shapes =
-			{
+				{
 			new Rectangle(150, 100, 100, 100, 1, Color.Orange),
 			new Square(100, 300, 100, 1, Color.Red),
 			new Circle(50, 450, 100, 1, Color.Yellow),
@@ -69,7 +75,8 @@ namespace AbstractGeometry
 				{
 					if (!(shapes[i] is IHaveDiagonal)) shapes[i].Draw(e);
 				}
-			}
+			} 
+#endif
 		}
 		[DllImport("user32.dll")]
 		public static extern IntPtr GetDesktopWindow();

@@ -64,6 +64,19 @@ namespace AbstractGeometry
 			return Math.Sqrt(halfperimeter * (halfperimeter - side1) * (halfperimeter - side2) * (halfperimeter - side3));
 		}
 		public override double GetPerimeter() => side1 + side2 + side3;
+		public override void DrawHeight(PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, LineWidth);
+			SolidBrush brush = new SolidBrush(Color);
+			e.Graphics.DrawLine
+			(
+				pen,
+				(float)(StartX + (Side2 * Side2 - Side3 * Side3 + Side1 * Side1) / (2 * Side1)),
+				(float)(StartY + GetHeight()),
+				(float)(StartX + (Side2 * Side2 - Side3 * Side3 + Side1 * Side1) / (2 * Side1)),
+				(float)StartY
+			);
+		}
 		public override void Draw(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);
